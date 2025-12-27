@@ -3,13 +3,12 @@ import "./../styles/App.css";
 
 const App = () => {
   const [bill, setBill] = useState(50);
-  const [tip, setTip] = useState(0.18);
+  const [tip, setTip] = useState(0.18); 
   const [people, setPeople] = useState(1);
   const [tipPerPerson, setTipPerPerson] = useState("0.00");
 
   const calculateTip = () => {
-    const billInDollars = bill / 100;
-    const totalTip = billInDollars * tip;
+    const totalTip = bill * tip; 
     const result =
       people > 0 ? (totalTip / people).toFixed(2) : "0.00";
     setTipPerPerson(result);
@@ -33,6 +32,7 @@ const App = () => {
       <input
         id="serviceQual"
         type="number"
+        step="0.01" 
         value={tip}
         onChange={(e) => setTip(Number(e.target.value))}
       />
