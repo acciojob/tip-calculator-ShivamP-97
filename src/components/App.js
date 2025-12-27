@@ -8,7 +8,8 @@ const App = () => {
   const [tipPerPerson, setTipPerPerson] = useState("0.00");
 
   const calculateTip = () => {
-    const totalTip = bill * tip; 
+    const billInDollars = bill / 100;
+    const totalTip = billInDollars * tip;
     const result =
       people > 0 ? (totalTip / people).toFixed(2) : "0.00";
     setTipPerPerson(result);
