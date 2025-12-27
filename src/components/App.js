@@ -5,10 +5,14 @@ const App = () => {
   const [bill, setBill] = useState(50);
   const [tipPercentage, setTipPercentage] = useState(18);
   const [people, setPeople] = useState(1);
+  const [tipPerPerson, setTipPerPerson] = useState("0.00");
 
-  const totalTip = (bill * tipPercentage) / 100;
-  const tipPerPerson =
-    people > 0 ? (totalTip / people).toFixed(2) : "0.00";
+  const calculateTip = () => {
+    const totalTip = (bill * tipPercentage) / 100;
+    const result =
+      people > 0 ? (totalTip / people).toFixed(2) : "0.00";
+    setTipPerPerson(result);
+  };
 
   return (
     <div id="container">
@@ -41,6 +45,10 @@ const App = () => {
         value={people}
         onChange={(e) => setPeople(Number(e.target.value))}
       />
+
+      <br />
+
+      <button onClick={calculateTip}>Calculate</button>
 
       <p>Tip Per Person: ${tipPerPerson}</p>
     </div>
