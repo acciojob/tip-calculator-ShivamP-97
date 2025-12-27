@@ -50,7 +50,9 @@ const App = () => {
 
       <button onClick={calculateTip}>Calculate</button>
 
-      <p>Tip Per Person: ${tipPerPerson}</p>
+      <div id="totalTip">
+        <p>Tip Per Person: ${tipPerPerson}</p>
+      </div>
     </div>
   );
 };
